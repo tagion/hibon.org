@@ -1,5 +1,9 @@
 baseURL = 'http://www.hibon.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'HiBON'
 
-theme = 'gruvhugo'
+# theme = 'gruvhugo'
+theme = 'hugo-coder'
+
+[params]
+colorScheme = "auto"

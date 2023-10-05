@@ -1,4 +1,6 @@
-# HiBON
+---
+title: HiBON
+---
 
 *Fast, serializable, hash-invariant data format*
 
@@ -21,7 +23,11 @@ Along with that it defines a JSON compatible interchange format called HiBONJSON
 A format for doing remote procedure calls called HiRPC.  
 And an extension format for creating schemas called HiBONRecord.
 
-## Usage examples in D-lang
+## Usage examples
+
+
+{{< tabgroup style="code" >}}
+{{< tab name="D-lang" >}}
 
 Object interface
 
@@ -36,7 +42,6 @@ hibon["hai"] = "bon";
 hibon.toDoc;
 ```
 
-
 Lazy serialized documents
 
 ```d
@@ -47,7 +52,6 @@ auto doc = Document(data)
 // Get a string value from the buffer
 string decoded = doc["hai"].get!string;
 ```
-
 
 HiBONRecords (schemas)
 
@@ -73,10 +77,19 @@ if (data.isRecord!MyRecord) {
     record.str;
 }
 ```
+{{< /tab >}}
+
+{{< tab name="JavaScript" >}}
+
+No examples yet
+
+{{< /tab >}}
+{{< /tabgroup >}}
+
 
 ## Specification
 
- * [Hash-invariant Binary Object Notation (HiBON)](/hibon)  
+ * ([Hash-invariant Binary Object Notation (HiBON)]/hibon)  
  * [Integer stream encoding (LEB128)](/leb128)
  * [JSON interchange format (HiBONJSON)](/hibonjson)  
  * [HiBON Remote Procedure Call (HiRPC)](/hirpc)  
