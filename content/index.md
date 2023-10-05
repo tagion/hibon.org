@@ -89,7 +89,7 @@ No examples yet
 
 ## Specification
 
- * [Hash-invariant Binary Object Notation (HiBON)]/hibon)  
+ * [Hash-invariant Binary Object Notation (HiBON)](/hibon)  
  * [Integer stream encoding (LEB128)](/leb128)
  * [JSON interchange format (HiBONJSON)](/hibonjson)  
  * [HiBON Remote Procedure Call (HiRPC)](/hirpc)  
