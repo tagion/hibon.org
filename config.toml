@@ -2,8 +2,20 @@ baseURL = 'https://www.hibon.org/'
 languageCode = 'en-us'
 title = 'HiBON'
 
-# theme = 'gruvhugo'
-theme = 'hugo-coder'
+theme = 'hugo-Papermod'
 
 [params]
-colorScheme = "auto"
+ShowPostNavLinks = true
+defaultTheme = "auto"
+ShowBreadCrumbs = true
+
+[params.homeInfoParams]
+Title = "HiBON"
+Content = '''
+*Fast, serializable, hash-invariant data format*  
+  
+HiBON is a data format inspired by [BSON](https://bsonspec.org/) and developed for the [Tagion network](https://www.tagion.org).
+
+It's  a serializable binary format which is strongly typed and defines explicit ordering to achive hash-invariance.
+It's minimal and designed to be quick to encode, decode and verify.
+'''
