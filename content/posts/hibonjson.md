@@ -1,3 +1,8 @@
+---
+title: JSON Interchange Format (HiBONJSON)
+weight: 3
+---
+
 # Converting between HiBON and JSON
 
 To secure than HiBON is hash invariant when HiBON is converted back and forth between HiBON and JSON. The JSON must flow the format described below. 

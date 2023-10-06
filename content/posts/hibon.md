@@ -1,4 +1,8 @@
-# Hash invariant Binary Object Notation
+---
+title: Hash invariant Binary Object Notation (HiBON)
+wheight: 1
+---
+
 
 HiBON is a streamable data format which is able to contain common binary data types.
 

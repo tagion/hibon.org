@@ -1,3 +1,8 @@
+---
+title: Schema Types (HiBONRecord) [DRAFT]
+weight: 4
+---
+
 # HiBON Record
 
 > ⚠️  This Document is unfinished
