@@ -5,9 +5,11 @@ title = 'HiBON'
 theme = 'hugo-Papermod'
 
 [params]
+ShowToc = true
 ShowPostNavLinks = true
 defaultTheme = "auto"
 ShowBreadCrumbs = true
+showDrafts = true
 
 [params.homeInfoParams]
 Title = "HiBON + HiRPC"
@@ -19,3 +21,12 @@ HiBON is a data format inspired by [BSON](https://bsonspec.org/) and developed f
 It's a serializable binary format which is strongly typed and defines explicit ordering to achive hash-invariance.  
 It's minimal and designed to be quick to encode, decode and verify.  
 '''
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/tagion/tagion"
+
+[params.editPost]
+URL = "https://github.com/tagion/hibon.org/tree/master/content"
+Text = "Suggest changes 📑"
+appendFilePath = true
