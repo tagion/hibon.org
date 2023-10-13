@@ -24,7 +24,7 @@ It's minimal and designed to be quick to encode, decode and verify.
 
 [[params.socialIcons]]
 name = "github"
-url = "https://github.com/tagion/tagion"
+url = "https://github.com/tagion/tagion/tree/master/src/lib-hibon"
 
 [params.editPost]
 URL = "https://github.com/tagion/hibon.org/tree/master/content"
