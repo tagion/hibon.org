@@ -18,7 +18,7 @@ Content = '''
   
 HiBON is a data format inspired by [BSON](https://bsonspec.org/) and developed for the [Tagion network](https://www.tagion.org).  
   
-It's a serializable binary format which is strongly typed and defines explicit ordering to achive hash-invariance.  
+It's a serializable binary format which is strongly typed and defines explicit ordering to achieve hash-invariance.  
 It's minimal and designed to be quick to encode, decode and verify.  
 '''
 
