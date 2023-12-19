@@ -8,12 +8,20 @@ HiBON is a streamable data format which is able to contain common binary data ty
 
 Pronounced 'Haibon'
 
- ## Description of the binary package format
+## Description of the binary package format
 
-The HiBON  binary format describe here in pseudo-BNF format. 
+### Package size
+
+A data package is defined as with a length in bytes appended string of bytes.
+
+| Length field    | Data       |
+| --------------- | ---------- |
+| unsigned LEB128 | byte array |
+
+The length field is defined by a unsigned [LEB128](/posts/leb128).
 
 ### Basic Types
-
+The HiBON  binary format describe here in pseudo-BNF format.
 | Type name | Type description                                         |
 | --------- | -------------------------------------------------------- |
 | int       | signed 32 integer                                        |
