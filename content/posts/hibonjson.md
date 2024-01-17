@@ -129,7 +129,8 @@ Note. Because the inner object is name "sub_hibon" the main HiBON is defined as 
 
 ```json
 [
-    "big",
+    [
+        "big",
         "@meiC-oiHr6Tg-POQtYdZ"
     ],
     true,
@@ -165,13 +166,13 @@ Note. Because the inner object is name "sub_hibon" the main HiBON is defined as 
         "Text",
         [
             "time",
-            "2023-09-11T12:47:36.0169725"
+            "2024-01-17T16:53:01.2457767"
         ]
     ]
 ]
 ```
 
-HiBON daya are shown as hex dump of the binary data 
+HiBON data shown as a hex dump of the binary data
 
 ```
 00000000  66 1a 00 00 99 e8 82 fa  88 87 af a4 e0 f8 f3 90  |f...............|
