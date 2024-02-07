@@ -49,7 +49,7 @@ This table shows the valid formats describe as regular expression.
 1. The syntax of the JSON must compile to the JSON standard https://www.json.org/json-en.html
 2. If some items in the JSON document does not fit the HiBON to JSON format it is defined as an error.
 3. The JSON member name **$VER** is reserved for to fined future HiBON versions.
-
+4. ISO 8601 strings must contain the full information, including date, clock & timezone.
 
 
 ## JSON compliant tests
@@ -99,7 +99,7 @@ This examples contains all the types in HiBON as an HiBON object inside and HiBO
         "STRING": "Text",
         "TIME": [
             "time",
-            "2023-09-06T15:10:31.354119"
+            "2023-09-06T15:10:31.354119+01:00"
         ]
     }
 }
@@ -166,7 +166,7 @@ Note. Because the inner object is name "sub_hibon" the main HiBON is defined as 
         "Text",
         [
             "time",
-            "2024-01-17T16:53:01.2457767"
+            "2024-01-17T16:53:01.2457767+01:00"
         ]
     ]
 ]
