@@ -25,8 +25,8 @@ The member **sign** is the $sign **hirpc** object and **$pkey** is the public-ke
 The method may include a '.'.
 Only the last string behind the dot is interpreted as the function name.
 The string preceeding is an optional entity name.
-Eg. tagion full nodes can take `<dartCRUD(RO)>` commands with no entity prefix to read from main dart. And `trt.<dartCRUD(RO)>` commands to read from the trt(transaction reverse table) dart.
-See the [tagion hirpcmethods](https://docs.tagion.org/#/documents/protocols/contract/hirpcmethods) for more real world examples.
+Eg. tagion full nodes accept `dartRead` commands with no entity prefix to read from main dart. And the `trt.dartRead` to read from the trt(transaction reverse table) dart.
+See the [tagion hirpcmethods](https://docs.tagion.org/#/documents/protocols/contract/hirpcmethods) for more examples.
 
 ### Success full result
 ```js
