@@ -12,7 +12,8 @@ Pronounced 'Haibon'
 
 ### Package size
 
-A data package is defined as with a length in bytes appended string of bytes.
+A data package is defined as a length and a data byte array.
+The length field is the length of the byte array.
 
 | Length field    | Data       |
 | --------------- | ---------- |
@@ -51,20 +52,20 @@ list       ::= element list
 key        ::= key_index | key_string // Member key either as a u32 or text
 element    ::=                        // TYPE key value
       FLOAT64 key f64  
-    | FLOAT32 key f32 
- 	| STRING key string
- 	| DOCUMENT key document
- 	| BINARY key binary
- 	| BOOLEAN key ('\x00'|'\x01')
- 	| TIME key i64              // Standard Time counted as the total 100nsecs from midnight, 
- 	                           // January 1st, 1 A.D. UTC.
+    | FLOAT32 key f32
+    | STRING key string
+    | DOCUMENT key document
+    | BINARY key binary
+    | BOOLEAN key ('\x00'|'\x01')
+    | TIME key i64             // Standard Time counted as the total 100nsecs from midnight, 
+                               // January 1st, 1 A.D. UTC.
     | INT32 key i32
     | INT64 key i64
     | BIGINT key ibig
     | UINT32 key u32
     | UINT64 key u64
-    | HASHDOC key hashdoc       // Is the hash pointer to a HiBON 
-    | VER u32             // This field sets the version
+    | HASHDOC key hashdoc      // Is the hash pointer to a HiBON 
+    | VER u32                  // This field sets the version
     | RFU
     | ERROR
 // Data types
@@ -91,7 +92,7 @@ datablock  ::= u32 binary      // The first field set the type and binary data
 len        ::= leb128!uint     // Same a u32 except null value is accepted
 null       ::= '\x00'          // Define as one byte with the value of zero
 // key format
-key_index  ::= null u32     // Defined the key as an unsigend 32 bits number used for document arrays
+key_index  ::= null u32       // Defined the key as an unsigend 32 bits number used for document arrays
 key_string ::= len key_text   // Is a key subset of the ascii see rule 1. 
 // Type codes
 STRING     ::= '\x01'
