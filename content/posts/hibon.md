@@ -12,8 +12,8 @@ Pronounced 'Haibon'
 
 ### Package size
 
-A data package is defined as a length and a data byte array.
-The length field is the length of the byte array.
+A data package is defined as a length followed by a data byte array.  
+The length field is the length of the byte array.  
 
 | Length field    | Data       |
 | --------------- | ---------- |
