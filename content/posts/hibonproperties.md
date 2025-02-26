@@ -1,7 +1,12 @@
+---
+title: HiBON Properties 
+weight: 0 
+---
+
 # HiBON Properties
 The purpose of the HiBON format is to have a simple data record that is compact and can scale.
 
-The HiBON format is designed to have the following properties.
+## The HiBON format is designed to have the following properties.
 
 1. Hash invariant.
 2. It is efficient to store in a consensus database like the DART.
