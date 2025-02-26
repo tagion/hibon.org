@@ -1,6 +1,6 @@
 ---
 title: JSON Interchange Format (HiBONJSON)
-weight: 3
+weight: 4
 ---
 
 # Converting between HiBON and JSON

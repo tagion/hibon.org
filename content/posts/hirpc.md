@@ -1,6 +1,6 @@
 ---
 title: Remote Procedure Calls (HiRPC)
-weight: 4
+weight: 5
 ---
 
 # HiBON Remote Procedure Call (HiRPC)

@@ -1,6 +1,6 @@
 ---
 title: Schema Types (HiBONRecord)
-weight: 4
+weight: 5
 draft: true
 ---
 

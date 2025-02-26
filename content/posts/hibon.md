@@ -1,6 +1,6 @@
 ---
 title: Hash invariant Binary Object Notation (HiBON)
-weight: 1
+weight: 2
 ---
 
 

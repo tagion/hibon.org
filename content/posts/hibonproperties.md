@@ -1,6 +1,6 @@
 ---
 title: HiBON Properties 
-weight: 0 
+weight: 1 
 ---
 
 # HiBON Properties
