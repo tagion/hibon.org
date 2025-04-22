@@ -23,25 +23,25 @@ The length field is defined by a unsigned [LEB128](/posts/leb128).
 
 ### Basic Types
 The HiBON  binary format describe here in pseudo-BNF format.
-| Type name | Type description                                         |
-| --------- | -------------------------------------------------------- |
-| int       | signed 32 integer                                        |
-| long      | signed 64 integer                                        |
-| uint      | unsigned 32 integer                                      |
-| ulong     | unsigned 64 integer                                      |
-| float     | 32-bit IEEE 754-2008 binary floating point               |
-| double    | 64-bit IEEE 754-2008 binary floating point               |
-| utf8*     | is defined as a string of characters in UTF-8 format     |
-| char*     | is defined as a string of characters in ASCII format     |
-| byte*     | is defined as a string of bytes                          |
-| i32       | signed 32 integer in leb128 format                       |
-| i64       | signed 32 integer in leb128 format                       |
-| u32       | unsigned 32 integer in leb128 format                     |
-| u64       | unsigned 64 integer in leb128 format                     |
-| f32       | float in little endian format                            |
-| f64       | double in little endian format                           |
-| len       | is a length file as u32 except the '\x00' is not allowed |
-| null      | is defined as '\x00'                                     |
+| Type tag | Type name | Type description                                         |
+| :-: | --------- | -------------------------------------------------------- |
+| | int       | signed 32 integer                                        |
+|| long      | signed 64 integer                                        |
+|| uint      | unsigned 32 integer                                      |
+|| ulong     | unsigned 64 integer                                      |
+|| float     | 32-bit IEEE 754-2008 binary floating point               |
+|| double    | 64-bit IEEE 754-2008 binary floating point               |
+|| utf8*     | is defined as a string of characters in UTF-8 format     |
+|| char*     | is defined as a string of characters in ASCII format     |
+|| byte*     | is defined as a string of bytes                          |
+|| i32       | signed 32 integer in leb128 format                       |
+|| i64       | signed 32 integer in leb128 format                       |
+|| u32       | unsigned 32 integer in leb128 format                     |
+|| u64       | unsigned 64 integer in leb128 format                     |
+|| f32       | float in little endian format                            |
+|| f64       | double in little endian format                           |
+|| len       | is a length file as u32 except the '\x00' is not allowed |
+|0x00 | null      | is defined as '\x00'                                     |
 
 
 
@@ -71,11 +71,11 @@ element    ::=                        // TYPE key value
 // Data types
 string     ::= len utf8*       // Array of UTF-8 containg len elements
 binary     ::= len byte*       // Array of byte containg len elements
-// All number types is stored as little endian
-u32        ::= leb128!uint     // leb128 decoded to a 32 bits unsigend integer
-i32        ::= leb128!int      // leb128 decoded to a 32 bits sigend integer
-u64        ::= leb128!ulong    // leb128 decoded to a 64 bits unsigend integer
-i64        ::= leb128!long     // leb128 decoded to a 64 bits sigend integer
+// All number types is stored as leb128
+u32        ::= leb128          // leb128 decoded to a 32 bit unsigned integer
+i32        ::= leb128          // leb128 decoded to a 32 bit signed integer
+u64        ::= leb128          // leb128 decoded to a 64 bit unsigned integer
+i64        ::= leb128          // leb128 decoded to a 64 bit signed integer
 f32        ::= decode!float    // 32 bits floatingpoint
 f64        ::= decode!double   // 64 bits floatingpoint
 bigint     ::= len uint[] sign // Contains a big-integer value stored on multible of 4 bytes which represents
