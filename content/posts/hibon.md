@@ -47,55 +47,59 @@ The HiBON  binary format describe here in pseudo-BNF format.
 
 
 ```
-document   ::= null | len list        // len in bytes contained in the list
-                                      // null value means the the document is empty
-list       ::= element list
-key        ::= key_index | key_string // Member key either as a u32 or text
-element    ::=                        // TYPE key value
+document   ::= null | len element*; len in bytes contained in the list
+                                  ; null value means the the document is empty
+element    ::=                    ;  TYPE key value
       FLOAT64 key f64  
     | FLOAT32 key f32
     | STRING key string
     | DOCUMENT key document
     | BINARY key binary
     | BOOLEAN key ('\x00'|'\x01')
-    | TIME key i64             // Standard Time counted as the total 100nsecs from midnight, 
-                               // January 1st, 1 A.D. UTC.
+    | TIME key i64             ; Standard Time counted as the total 100nsecs from midnight, 
+                               ; January 1st, 1 A.D. UTC.
     | INT32 key i32
     | INT64 key i64
     | BIGINT key ibig
     | UINT32 key u32
     | UINT64 key u64
-    | HASHDOC key hashdoc      // Is the hash pointer to a HiBON 
-    | VER u32                  // This field sets the version
+    | HASHDOC key hashdoc      ; Is the hash pointer to a HiBON 
+    | VER u32                  ; This field sets the version
     | RFU
     | ERROR
-// Data types
-string     ::= len utf8*       // Array of UTF-8 containg len elements
-binary     ::= len byte*       // Array of byte containg len elements
-// All number types is stored as leb128
-u32        ::= leb128          // leb128 decoded to a 32 bit unsigned integer
-i32        ::= leb128          // leb128 decoded to a 32 bit signed integer
-u64        ::= leb128          // leb128 decoded to a 64 bit unsigned integer
-i64        ::= leb128          // leb128 decoded to a 64 bit signed integer
-f32        ::= decode!float    // 32 bits floatingpoint
-f64        ::= decode!double   // 64 bits floatingpoint
-bigint     ::= len uint[] sign // Contains a big-integer value stored on multible of 4 bytes which represents
-                               // unsigned integer in little endian format and the sign
-                               // Only valid if ( len % 4 == 1 && len >= 4 )
-sign       ::= '\x00' | '\x01' // Set the sign of the bigint (none two complement)
-binary     ::= len ubyte*      // Byte array of the length len
-string     ::= len char*       // utf-8 array of the length len
+
+key        ::= key_index | key_string; Member key either as a u32 or text
+
+; Data types
+string     ::= len utf8*       ; Array of UTF-8 containg len elements
+binary     ::= len byte*       ; Array of byte containg len elements
+; All number types is stored as leb128
+u32        ::= leb128!uint     ; leb128 decoded to a 32 bit unsigned integer
+i32        ::= leb128!int      ; leb128 decoded to a 32 bit signed integer
+u64        ::= leb128!ulong    ; leb128 decoded to a 64 bit unsigned integer
+i64        ::= leb128!long     ; leb128 decoded to a 64 bit signed integer
+f32        ::= float           ; IEEE754 binary32 floatingpoint
+f64        ::= double          ; IEEE754 binary64 floatingpoint
+bigint     ::= len uint* sign  ; Contains a big-integer value stored on multible of 4 bytes which represents
+                               ; unsigned integer in little endian format and the sign
+                               ; Only valid if ( len % 4 == 1 && len >= 4 )
+sign       ::= '\x00' | '\x01' ; Set the sign of the bigint (none two complement)
+binary     ::= len ubyte*      ; Byte array of the length len
+string     ::= len char*       ; utf-8 array of the length len
 hashdoc    ::= datablock
 cryptdoc   ::= datablock
 credential ::= datablock
-datablock  ::= u32 binary      // The first field set the type and binary data
-// Length fields
-len        ::= leb128!uint     // Same a u32 except null value is accepted
-null       ::= '\x00'          // Define as one byte with the value of zero
-// key format
-key_index  ::= null u32       // Defined the key as an unsigend 32 bits number used for document arrays
-key_string ::= len key_text   // Is a key subset of the ascii see rule 1. 
-// Type codes
+datablock  ::= u32 binary      ; The first field set the type and binary data
+
+; Length fields
+len        ::= leb128!uint     ; Same a u32 except null value is accepted
+null       ::= '\x00'          ; Define as one byte with the value of zero
+
+; key format
+key_index  ::= null u32        ; Defined the key as an unsigend 32 bits number used for document arrays
+key_string ::= len key_text    ; Is a key subset of the ascii see rule 3.
+
+; Type codes
 STRING     ::= '\x01'
 DOCUMENT   ::= '\x02'
 BINARY     ::= '\x03'
@@ -110,7 +114,8 @@ FLOAT32    ::= '\x17'
 FLOAT64    ::= '\x18'
 BIGINT     ::= '\x1A'
 VER        ::- '\x1F'
-// Following types must result in an format error
+
+; Following types must result in an format error
 RFC        ::= '\x40' | '\x7e' | '\x80' | '\xC3' | '\xFE' | '\xC2' | '\x13'
 ERROR      ::= others 
 ```
