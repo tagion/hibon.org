@@ -23,25 +23,26 @@ The length field is defined by a unsigned [LEB128](/posts/leb128).
 
 ### Basic Types
 The HiBON  binary format describe here in pseudo-BNF format.
+
 | Type tag | Type name | Type description                                         |
-| :-: | --------- | -------------------------------------------------------- |
-| | int       | signed 32 integer                                        |
-|| long      | signed 64 integer                                        |
-|| uint      | unsigned 32 integer                                      |
-|| ulong     | unsigned 64 integer                                      |
-|| float     | 32-bit IEEE 754-2008 binary floating point               |
-|| double    | 64-bit IEEE 754-2008 binary floating point               |
-|| utf8*     | is defined as a string of characters in UTF-8 format     |
-|| char*     | is defined as a string of characters in ASCII format     |
-|| byte*     | is defined as a string of bytes                          |
-|| i32       | signed 32 integer in leb128 format                       |
-|| i64       | signed 32 integer in leb128 format                       |
-|| u32       | unsigned 32 integer in leb128 format                     |
-|| u64       | unsigned 64 integer in leb128 format                     |
-|| f32       | float in little endian format                            |
-|| f64       | double in little endian format                           |
-|| len       | is a length file as u32 except the '\x00' is not allowed |
-|0x00 | null      | is defined as '\x00'                                     |
+|   :-:    | --------- | -------------------------------------------------------- |
+|          | int       | signed 32 integer                                        |
+|          | long      | signed 64 integer                                        |
+|          | uint      | unsigned 32 integer                                      |
+|          | ulong     | unsigned 64 integer                                      |
+|          | float     | 32-bit IEEE 754-2008 binary floating point               |
+|          | double    | 64-bit IEEE 754-2008 binary floating point               |
+|          | utf8*     | is defined as a string of characters in UTF-8 format     |
+|          | char*     | is defined as a string of characters in ASCII format     |
+|          | byte*     | is defined as a string of bytes                          |
+|          | i32       | signed 32 integer in leb128 format                       |
+|          | i64       | signed 32 integer in leb128 format                       |
+|          | u32       | unsigned 32 integer in leb128 format                     |
+|          | u64       | unsigned 64 integer in leb128 format                     |
+|          | f32       | float in little endian format                            |
+|          | f64       | double in little endian format                           |
+|          | len       | is a length file as u32 except the '\x00' is not allowed |
+|   0x00   | null      | is defined as '\x00'                                     |
 
 
 
@@ -116,7 +117,7 @@ ERROR      ::= others
 
 
 
-## Compliment rules
+## Compliant rules
 
 #### A. Rules for key objects and array
 
@@ -140,7 +141,7 @@ ERROR      ::= others
 
 10. All keys most be ordered according to the **is_key_ordered** algorithm.
 
-11. All keys most comply with **in_key_valid** algorithm.
+11. All keys most comply with **is_key_valid** algorithm.
 
 12. A keys is defined to be an index according to the **is_index** algorithm.
 
